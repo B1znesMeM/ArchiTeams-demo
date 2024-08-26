@@ -1,0 +1,1151 @@
+@use 'sass:math'
+
+@import reset
+@import vars
+@import fonts
+@import libs
+
+:root 
+    --index: ( 1vw + 1vh )
+
+p::selection , h1::selection , h2::selection , h3::selection , h4::selection , h5::selection , h6::selection , span::selection, img::selection, a::selection, button::selection, input::selection, *::selection
+   color: #022d42
+   background-color: #fff
+   outline: none
+
+* 
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+
+
+body, html
+    background-color: #F8F5EE
+    color: #022d42
+    overscroll-behavior: none
+    scroll-behavior: auto
+    scrollbar-width: none
+
+#main 
+    position: relative
+    overflow: hidden /* Чтобы предотвратить горизонтальный скролл */
+
+.content
+    z-index: 5
+    background-color: #F8F5EE
+    position: relative
+
+.loader 
+    position: fixed
+    z-index: 15
+    width: 100%
+    height: 100%
+    left: 0
+    top: 0
+    background-color: #004526
+    font-family: Anticva, sans-serif
+    color: rgba(246, 246, 246, .7)
+    text-align: center
+    &-text 
+        font-size: 1.8182vw
+        line-height: 2.6vw
+        width: 100%
+    .loader__text-three
+        margin-top: 2vw
+        span
+            font-size: 2.2078vw
+
+.start-logo
+    padding-top: 3vw
+    margin-bottom: 7vw
+    display: inline-block
+    text-align: center
+    &-one 
+        width: 64.2987vw
+        margin-top: -5vw
+    &-two 
+        width: 28.2987vw
+        margin-left: 20%
+
+/* Start */
+
+.nav 
+    font-family: Anticva, sans-serif
+    font-size: 1.4vw
+    display: flex
+    justify-content: space-between
+    padding-top: 1.5vw
+    padding-bottom: 1.5vw
+    border-bottom: 0.0649vw solid rgba(2, 45, 66, .5)
+    align-items: center
+    &__block-one
+        display: flex
+        gap: 3vw
+        margin-left: 3vw
+    &__block-two
+        display: flex
+        gap: 3vw
+        margin-right: 3vw
+    .nav__block-paragraph-a
+        text-decoration: none
+        color: $color
+
+.bar
+    display: block
+    margin-right: 20px
+
+.burger
+    position: absolute
+    top: 30px
+    right: 10px
+    z-index: 13
+
+.bar 
+    width: 40px
+    height: 3px
+    border-radius: 2px
+    background-color: rgba(2, 45, 66, .8)
+    transition: 0.3s
+    position: relative
+  
+.bar::after, .bar::before 
+    content: ""
+    position: absolute
+    width: inherit
+    height: inherit
+    background-color: rgba(2, 45, 66, .8)
+    transition: 0.5s
+  
+.bar::after 
+    transform: translateY(12px)
+  
+.bar::before 
+    transform: translateY(-12px)
+  
+.nav-mobile
+    display: none
+    position: relative
+
+/* nav-mobile */   
+
+.nav-mobile__block
+    transform: translateY(-200%)
+    position: absolute
+    width: 100%
+    height: 100vh
+    z-index: 12
+    background-color: #D6D2C7
+    font-family: Anticva, sans-serif
+    font-size: calc(var(--index) * 5.6)
+
+.nav-mobile__block-paragraph-a
+    color: $color
+    text-decoration: none
+    transition: all 500ms cubic-bezier(0.415, 0.170, 0.375, 0.655)
+    outline: none
+
+.nav-mobile__block-one
+    position: absolute
+    width: 100%
+    top: calc(var(--index) * 10)
+
+[data-text='mobile-one'] 
+    text-align: start
+    margin-bottom: calc(var(--index) * 2)
+    margin-left: 3vw
+
+[data-text='mobile-two']
+    text-align: end
+    margin-bottom: calc(var(--index) * 2)
+    margin-right: 6vw
+
+[data-text='mobile-three']
+    text-align: start
+    margin-bottom: calc(var(--index) * 2)
+    margin-left: 4vw
+
+[data-text='mobile-four']
+    text-align: end
+    margin-right: 4vw
+    
+
+/* end nav-mobile */
+
+.logo
+    padding-top: 10px
+    width: 100%
+    display: inline-block
+    text-align: center
+    margin-top: 60px
+    // border-top: 2px solid $color
+    img
+        width: 98%
+
+.start-images
+    display: flex
+    justify-content: space-between
+    color: $color
+    margin-top: 6.4935vw
+
+.start__btn
+    text-align: center
+    margin-right: 12vw
+    margin-top: 6.4935vw
+    a
+        color: $color
+        text-decoration: none
+    button
+        width: 7vw
+        height: 7vw
+        transform: rotate(90deg)
+        background-color: transparent
+        border: 0.1299vw solid rgba(2, 45, 66, .3)
+        border-radius: 50%
+        cursor: pointer
+        img
+            width: 4.0260vw
+            height: 4.0260vw
+    p
+        font-size: 1.9vw
+        font-family: NewRomeTrial-Light, sans-serif
+        margin-top: 0.6494vw
+        
+.start__image-one
+    font-family: NewRomeTrial-Light, sans-serif
+    width: 19vw
+    margin-left: 8vw
+    margin-top: 9.7403vw
+    img
+        width: 100%
+    p
+        color: $color
+        font-size: 2vw
+    h3
+        font-family: GardensC, sans-serif
+        font-size: 3.3vw
+        margin-bottom: -0.8442vw
+        margin-left: -1.8182vw
+        position: sticky
+        letter-spacing: -0.1623vw
+        z-index: 10
+        opacity: 0
+        width: 19vw
+
+.start__image-two
+    font-family: NewRomeTrial-Light, sans-serif
+    width: 26vw
+    img
+        width: 100%
+    p
+        letter-spacing: -.04rem
+        font-size: 2vw
+    h3
+        font-family: GardensC, sans-serif
+        font-size: 3.3vw
+        margin-bottom: -0.8442vw
+        position: sticky
+        letter-spacing: -0.1623vw
+        z-index: 10
+        opacity: 0
+        width: 22vw
+
+.fact
+    display: flex
+    justify-content: space-between
+    margin-top: 6.4935vw
+    margin-bottom: 3.2468vw
+    margin-left: 4vw
+    position: relative
+    &-text 
+        font-size: 2.1vw
+        font-family: GardensC, sans-serif
+        letter-spacing: .8vw
+        margin-left: 3.5rem
+        margin-right: 4vw
+        width: 45vw
+    img
+        width: 45vw
+
+/* text-one */
+
+.additional-text-two
+    padding-left: 3.5714vw
+    color: #fff
+    font-size: 22vw
+    font-family: GardensC, sans-serif
+    padding-top: 5.1948vw
+    line-height: 22vw
+
+.intresting-title-two
+    font-size: 14vw
+    font-family: NewRomeTrial-Light, sans-serif
+    text-align: center
+    z-index: 2
+    color: $color
+
+.intresting-main
+    z-index: 5
+    position: relative
+    padding-top: 9.7403vw
+
+.intresting-images-one
+    position: absolute
+    width: 20vw
+    top: 25.9740vw
+    left: 8vw
+    z-index: 2
+
+.intresting-images-two
+    position: absolute
+    right: 5vw
+    top: 45.4545vw
+    z-index: 2
+    width: 24vw
+
+.intresting-images-three
+    position: absolute
+    width: 20vw
+    top: 64.9351vw
+    left: 36vw
+    z-index: 2
+
+.intresting-text
+    display: flex
+    flex-direction: column
+    padding-top: 7.4675vw
+    padding-left: 10vw
+    padding-right: 10vw
+    font-family: Kreadon-L, sans-serif
+    margin-bottom: 15vw
+    width: 78vw
+    button
+        width: 20vw
+        background-color: transparent
+        border: none
+        display: flex
+        align-items: center
+        gap: 1.2987vw
+        margin-top: 3.2468vw
+        a
+            color: $color
+            font-size: 1.9vw
+            text-decoration: none
+            border: 0.1299vw solid $color
+            padding: 1.2987vw
+            border-radius: 3.8961vw
+            font-family: Kreadon-L, sans-serif
+
+.arrow-intresting
+    width: 4vw
+        
+.intresting-text__paragraph
+    display: inline-block
+    color: $color
+    font-size: 2.5vw 
+    line-height: 2.8vw
+
+.intresting-forms
+    position: relative
+    height: 35vw
+    border-top: 0.0649vw solid $color
+    border-bottom: 0.0649vw solid $color
+    display: flex
+    justify-content: space-between
+
+.intresting-forms__a
+    position: absolute
+    transform: rotate(-90deg)
+    top: 14vw
+    left: -6.4935vw
+    a
+        color: $color
+        font-family: Anticva, sans-serif
+        text-decoration: none
+        font-size: 1.7vw
+        margin-right: 3.2468vw
+
+.intresting-forms-form
+    margin-top: 4.9vw
+    width: 35vw
+    margin-left: 20vw
+    &-input-one
+        display: flex
+        justify-content: space-between
+        gap: 3.2468vw
+        input
+            width: 50%
+            padding: 0.6494vw
+            font-size: 1.3vw
+            border: none
+            border-bottom: 0.0649vw solid $color
+            background-color: transparent
+            color: $color
+            outline: none
+            output: none
+            font-family: Kreadon-L, sans-serif
+            &::placeholder
+                color: $color
+                font-family: Kreadon-L, sans-serif
+    &-input-two
+        input
+            width: 100%
+            padding: 0.6494vw
+            font-size: 1.3vw
+            border: none
+            border-bottom: 0.0649vw solid $color
+            background-color: transparent
+            color: $color
+            outline: none
+            output: none
+            font-family: Kreadon-L, sans-serif
+            margin-top: 1.9481vw
+            &::placeholder
+                color: $color
+                font-family: Kreadon-L, sans-serif
+    &-if 
+        font-size: 1.3vw
+        display: flex
+        align-items: center
+        margin-top: 1.9481vw
+        p
+            color: $color
+            text-decoration: none
+            font-family: KyivTypeSans, sans-serif
+            font-weight: 900
+        a
+            color: $color
+    &-btn 
+        display: inline-block
+        width: 100%
+        padding: 1.0390vw
+        background-color: #ECECE2
+        border: 0.0649vw solid $color
+        color: $color
+        text-decoration: none
+        font-size: 1.9vw
+        font-family: KyivTypeSans, sans-serif
+        font-weight: 900
+        padding-left: 8vw
+        margin-top: 1.2987vw
+        img
+            margin-left: 1.9481vw
+
+/* checkbox */ 
+
+
+/* end checkbox */
+
+.intresting-forms-text
+    width: 27vw
+    border-left: 0.0649vw solid $color
+    // padding-bottom: 200px
+    h2
+        color: $color
+        font-family: Anticva, sans-serif
+        padding: 2vw 0px 1.2vw 2vw
+        font-size: 1.5vw
+    p
+        font-size: 1.5vw
+        color: $color
+        font-family: KyivTypeSans, sans-serif
+        font-weight: 800
+        padding: 0px 2.5vw 0px 2vw
+    .intresting-forms-text-p
+        padding: 2vw 2.5vw 0px 2vw
+        
+.email-text
+    padding-bottom: 6.4935vw
+    overflow-x: auto
+.email-text::-webkit-scrollbar
+    display: none
+
+.email-con
+    display: inline-block
+    white-space: nowrap
+    .con
+        animation-name: email
+        animation-duration: 15s
+        animation-timing-function: linear
+        animation-iteration-count: infinite
+        display: inline-block
+    &-text       
+        display: inline-block
+        color: $color
+        font-family: Anticva, sans-serif
+        font-size: 16vw
+        margin-top: 6.4935vw
+        align-items: center
+        
+.gola
+    display: inline-block
+    width: 4.5455vw
+    height: 4.5455vw
+    background-color: $color
+    border-radius: 50%
+    margin: 2.5974vw
+
+@keyframes email
+    0%
+        transform: translateX(0%)
+    
+    100%
+        transform: translateX(-100%)
+    
+
+/* tapes */   
+
+.prices
+    background-color: #F8F5EE
+    color: $color
+    margin-top: -0.0649vw
+    z-index: 12
+    margin-top: -3.2468vw
+
+/* end types */
+
+/* Image */
+
+.image-section
+    z-index: 2
+    margin-top: 6.4935vw
+
+.image
+    width: 100%
+    position: relative
+
+.img
+    height: 51.9481vw
+    width: 100%
+    background-size: cover
+
+.img-text
+    background-color: #F8F5EE
+    width: 38.9610vw
+    height: 25.9740vw
+    position: absolute
+    bottom: 0
+    left: 50%
+    transform: translate(-50%, 0)
+    text-align: center
+    padding: 1.2987vw
+    h3
+        font-size: 2.078vw
+        font-family: Anticva, sans-serif
+        margin-top: 0.6494vw
+        line-height: 3.117vw
+    p
+        font-size: 1.87vw
+        font-family: Kreadon-L, sans-serif
+        margin-top: 1.9481vw
+        line-height: 2.078vw
+
+.img-bottom
+    width: 38.9610vw
+    height: 25.9740vw
+    margin: 0 auto
+    z-index: 2
+    img
+        width: 100%
+        height: 100%
+
+.img-text-two
+    display: none
+
+.email-con-text
+    font-size: 20vw
+
+.gola
+    width: 7vw
+    height: 7vw
+    margin: 5vw
+
+/* table */   
+
+.block-table
+    display: flex
+    justify-content: center
+
+table 
+  border-collapse: collapse
+  line-height: 1.1
+  color: $color
+  font-family: NewRomeTrial-Light, sans-serif
+  width: 90%
+  margin: 0 auto
+
+th 
+  font-size: 2.5vw
+  padding: 1.2987vw
+  border-bottom: 0.1948vw solid $color
+  border-right: 0.1948vw solid $color
+  th::last-child
+    border-right: none
+
+td 
+  font-size: 2vw
+  padding: 1.2987vw
+  border-right: 0.1948vw solid $color
+  border-bottom: 0.1948vw solid $color
+
+.td-last
+    border-right: none 
+
+/* price bottom */
+
+.price-text-bottom
+    color: $color
+    font-size: 10vw
+    font-family: Anticva, sans-serif
+    line-height: 15vw
+    margin-top: 9.7403vw
+
+.price-text-bottom-one
+    margin-left: 15vw
+
+.price-text-bottom-two
+    margin-right: 2vw
+    text-align: end
+
+.price-text-bottom-three
+    margin-left: 2vw
+
+.price-img
+    img
+        width: 100%
+        border-radius: 50%
+
+.price-title
+    font-size: 19vw
+    font-family: NewRomeTrial-Light, sans-serif
+    color: $color
+    text-align: center
+    text-transform: uppercase
+    margin-top: -3.8961vw
+    z-index: -1
+    margin-bottom: 6.4935vw
+
+
+/* footer */   
+
+.footer-place
+    height: 48vw
+
+.footer-content 
+    font-family: Anticva, sans-serif
+    position: fixed
+    bottom: 0
+    left: 0
+    width: 100%
+    background-color: #ECECE2 /* Цвет фона для подвала */
+    height: 48vw
+    z-index: -10
+
+
+.logo-footer 
+    width: 100%
+    display: inline-block
+    text-align: center
+    margin-top: 2vw
+    margin-bottom: 1.2987vw
+
+    img 
+        width: 98%
+
+
+.footer-block 
+    position: relative
+    display: flex
+    font-size: 3.6vw
+    line-height: 6vw
+    margin-left: 3vw
+    margin-right: 3vw
+    padding-top: 2.5974vw
+    border-top: 0.0649vw solid $color
+
+    h6 
+        position: absolute
+        display: inline-block
+        font-size: 2vw
+        right: 5vw
+        bottom: 0
+        span 
+            font-size: 3.5vw
+
+.footer-block-nav 
+    border-right: 0.0649vw solid $color
+    padding-right: 10vw
+    padding-top: 2vw
+    transition: all 2s ease-out
+
+    a 
+        text-decoration: none
+        color: $color
+    
+
+    li 
+        transition: all 0.2s ease-out
+
+        &:hover 
+            transform: scale(1.2)
+        
+    
+
+
+.footer-block-social 
+    margin-left: 5vw
+    padding-top: 2vw
+    transition: all 0.2s ease-out
+
+    a 
+        text-decoration: none
+        color: $color
+    
+
+    li 
+        transition: all 0.2s ease-out
+
+        &:hover 
+            transform: scale(1.2)
+
+@media ( max-width: 1240px )
+    .footer-content
+        z-index: 1
+        position: fixed
+        bottom: 0
+        left: 0
+
+    .start-logo
+        display: flex
+        flex-direction: column
+        margin-top: calc(var(--index) * 5)
+        &-one 
+            width: calc(var(--index) * 30)
+            margin: 0 auto
+        &-two 
+            width: calc(var(--index) * 15)
+            margin: 0 auto
+            transform: translate(25%, 0)
+
+    .loader-text
+        magrin-top: calc(var(--index) * 3)
+        margin-left: 50%
+        transform: translate(-50%, 0)
+        font-size: calc(var(--index) * 1.2)
+        line-height: calc(var(--index) * 2)
+        .loader__text-three
+            span
+                font-size: calc(var(--index) * 2.1)
+    .nav
+        display: none
+
+    .nav-mobile
+        display: block
+        // padding-top: 30px
+
+    .nav-mobile__block
+        transition: all 500ms cubic-bezier(0.415, 0.170, 0.375, 0.655)
+
+    .intresting-images-three
+        display: none
+
+@media (max-height: 601px)
+    .start-logo
+        display: none
+
+    .loader-text
+        margin-top: 50%
+        left: 50%
+        transform: translate(-50%, 0%)
+        font-size: 2.5vw
+        line-height: 3.5vw
+        .loader__text-three
+            span
+                font-size: 5vw
+
+        
+@media (max-width: 1131px) 
+    .fact-text
+        margin-left: 2.5vw
+
+@media ( max-width: 1026px )
+    .img-text
+        width: 43.961vw
+        p
+            font-size: 2.1vw
+        h3
+            font-size: 2.478vw
+            line-height: 3.517vw
+    .img-bottom
+        width: 43.961vw
+
+.intresting-forms-form-input-one input
+    padding: .9vw
+    font-size: 1.7vw
+
+.intresting-forms-form-input-two input
+    padding: .9vw
+    font-size: 1.7vw
+
+.intresting-forms-form-if 
+    font-size: 1.4vw
+
+.intresting-forms-text h2
+    font-size: 1.8vw
+
+.intresting-forms-text p
+    font-size: 1.7vw
+
+
+@media (max-width: 821px)
+    .fact
+        flex-direction: column-reverse
+        margin-right: 4vw
+        gap: 5vw
+        &-text 
+            margin-left: 0
+            width: 100%
+            font-size: 4vw
+            letter-spacing: 1.6vw
+    .fact img
+        width: 100%
+
+    .start__btn
+        display: none
+
+    .start__image-one
+        width: 50vw
+        margin-left: 5vw
+        margin-top: 0
+        img
+            height: 65vw
+        h3
+            width: 35vw
+            margin-left: 0 
+            margin-bottom: -1.6vw 
+            span
+                font-size: 6vw
+        p
+            font-size: 4vw
+
+    .start__image-two
+        width: 50vw
+        margin-right: 5vw
+        margin-top: 0
+        img
+            height: 65vw
+        h3
+            width: 42vw 
+            margin-bottom: -1.6vw
+            span
+                font-size: 6vw
+        p
+            font-size: 4vw      
+
+    .start-images
+        gap: 6vw  
+
+    .intresting-title-two
+        font-size: 16vw
+
+    .intresting-text
+        padding-left: 3vw
+        padding-right: 3vw
+        width: 100%
+        &__paragraph
+            font-size: 5vw
+            line-height: 5.8vw
+
+    .intresting-text button
+        width: auto
+        gap: 5vw
+        margin-top: 6vw
+
+    .intresting-text button a
+        font-size: 5vw
+        padding: 3vw
+        border-radius: 6vw
+        border: 1px solid $color
+
+    .arrow-intresting
+        width: 8vw
+
+    .intresting-images-two
+        top: 80vw
+
+    .intresting-images-three
+        top: 80vw
+
+    .intresting-forms-text
+        width: 65vw
+        display: flex
+        text-align: end
+        flex-direction: row-reverse
+        align-items: center
+        margin-left: 30vw
+        border: none
+        margin-top: 7vw
+
+        h2
+            padding: 0
+            font-size: 3vw
+        p
+            padding: 0
+            font-size: 2.3vw
+
+    .intresting-forms-text .intresting-forms-text-p
+        padding: 0
+
+    .intresting-forms-form
+        width: auto
+
+    .intresting-forms
+        height: 70vw
+        display: block
+
+
+    .intresting-forms-form-input-one
+        input
+            font-size: 3vw
+
+    .intresting-forms-form-input-two
+        input
+            font-size: 3vw
+
+    .intresting-forms-form-if
+        font-size: 2.2vw
+
+    .intresting-forms__a
+        top: 21vw
+        left: -10vw
+        a
+            font-size: 2.3vw
+
+    .intresting-forms-form
+        margin-left: 0
+        margin-top: 6vw
+        margin-left: 20vw
+        margin-right: 5vw
+
+    .intresting-forms-form-btn
+        font-size: 3.5vw
+        padding: 2vw
+        padding-left: 13vw
+
+    .arrow-intresting-two
+        width: 6.5vw !important
+        margin-left: 4vw !important
+
+    th
+        font-size: 4vw
+
+    td
+        font-size: 3.5vw
+
+    .footer-block
+        font-size: 4.5vw
+        line-height: 7vw
+    
+    .footer-block h6
+        font-size: 2.3vw
+    span
+        font-size: 2.8vw
+
+    table
+        width: auto
+        margin-right: 3vw
+        margin-left: 3vw
+
+    .footer-place
+        height: 51vw
+    
+    .footer-content
+        height: 51vw
+
+    .intresting-images-two
+        display: none
+
+    .intresting-images-one
+        width: 25vw
+        left: 5vw
+
+    .intresting-images-three
+        display: block
+        left: 55vw
+        width: 25vw
+
+@media (max-width: 769px)
+    .img-text
+        width: 48.961vw
+        height: 30.974vw
+        p
+            font-size: 2.4vw
+            line-height: 2.6vw
+        h3
+            font-size: 2.878vw
+            line-height: 3.917vw
+    .img-bottom
+        width: 48.961vw
+        height: 30.974vw
+    
+    th
+        font-size: 3vw
+
+    td
+        font-size: 2.5vw
+        
+    .intresting-text__paragraph
+        font-size: 4vw
+        margin-left: 3vw
+
+    .intresting-text
+        width: 83vw
+
+    .intresting-text button a
+        font-size: 2.8vw
+
+    .arrow-intresting
+        width: 5vw
+
+@media ( max-width: 681px )
+    .img-text h3
+        margin-top: 2vw
+
+@media (max-width: 631px )
+    .img-text
+        display: none
+
+    .img-bottom
+        width: 100%
+        height: auto
+        padding-right: 5vw
+        padding-left: 5vw
+
+    .img-text-two
+        display: block
+        padding-right: 5vw
+        padding-left: 5vw
+        text-align: center
+        h3
+            font-size: 7vw
+            font-family: Anticva, sans-serif
+            margin-top: 5vw
+            line-height: 10.117vw
+        p
+            font-size: 5.5vw
+            font-family: Kreadon-L, sans-serif
+            margin-top: 1.9481vw
+            line-height: 8.078vw
+            margin-bottom: 5vw
+
+    th
+        font-size: 3.5vw
+
+    td
+        font-size: 3vw
+
+    .fact-text
+        font-size: 5vw
+        letter-spacing: 2vw
+
+    .intresting-text
+        width: 100%
+
+    .intresting-images-two
+        display: none
+    
+    .intresting-images-three
+        left: 60vw
+        top: 70vw
+
+
+@media ( max-width: 431px )
+    .intresting-forms-text h2
+        font-size: 4vw
+
+    .intresting-forms-text p
+        font-size: 3.3vw
+
+    .intresting-forms-text
+        width: 100%
+        padding-right: 3vw
+        padding-left: 3vw
+        gap: 2vw
+        margin-left: 0
+
+    .intresting-forms
+        height: auto
+        padding-bottom: 4vw
+
+    .intresting-forms-form-if
+        font-size: 3.5vw
+        margin-bottom: 2vw
+        margin-top: 3vw
+
+    .intresting-forms__a a
+        font-size: 5vw
+    
+    .intresting-forms__a
+        position: static
+        text-align: center
+        margin-top: 5vw
+        transform: rotate(0deg)
+
+    .intresting-forms-form
+        width: auto
+        margin-left: 3vw
+        margin-right: 3vw
+
+    .intresting-forms-form-input-one input, .intresting-forms-form-input-two input
+        font-size: 4vw
+        padding: 10px
+
+    .intresting-forms-form-btn
+        font-size: 5vw
+        padding: 3vw
+        padding-left: 15vw
+
+    .arrow-intresting-two
+        width: 8vw !important
+    
+    th
+        font-size: 4.2vw
+
+    td
+        font-size: 3.8vw
+
+    [data-text='mobile-one'] 
+        text-align: start
+        margin-bottom: calc(var(--index) * 4)
+        margin-left: 3vw
+
+    [data-text='mobile-two']
+        text-align: end
+        margin-bottom: calc(var(--index) * 4)
+        margin-right: 6vw
+
+    [data-text='mobile-three']
+        text-align: start
+        margin-bottom: calc(var(--index) * 4)
+        margin-left: 4vw
+
+    [data-text='mobile-four']
+        text-align: end
+        margin-right: 4vw
+
+    .nav-mobile__block
+        font-size: calc(var(--index) * 4.5)
+
+    .bar
+        width: 10vw
+        height: .6vw
+
+    .logo
+        margin-top: 10vw
+
+    .bar::after 
+        transform: translateY(3vw)
+  
+    .bar::before 
+        transform: translateY(-3vw)
+
+    .burger
+        top: 6vw
+        right: 1vw
